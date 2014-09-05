@@ -181,16 +181,16 @@ install_func_online () {
             if [ "`yum list installed | grep -c ${soft_name}`" -eq "0" ]; then
                 yum -y install $soft_name;
             fi
-        fi
-        if [ `rpm -qa | grep -c ${soft_name}` -eq "0" ]; then
-            echo -e "$soft_name $continue_install_string" > /tmp/geowebenv_install_status.txt
-            echo -e $enter2
-            showmsg "$soft_name $continue_install_string_cn"    "$soft_name $continue_install_string"    $color_green    $color_white
-        else
-            echo -e "$soft_name $stop_install_string" > /tmp/geowebenv_install_status.txt
-            echo -e $enter2
-            showmsg "$soft_name $stop_install_string_cn"    "$soft_name $stop_install_string"    $color_red    $color_white
-            exit
+            if [ `rpm -qa | grep -c ${soft_name}` -eq "0" ]; then
+                echo -e "$soft_name $stop_install_string" > /tmp/geowebenv_install_status.txt
+                echo -e $enter2
+                showmsg "$soft_name $stop_install_string_cn"    "$soft_name $stop_install_string"    $color_red    $color_white
+                exit
+            else
+                echo -e "$soft_name $continue_install_string" > /tmp/geowebenv_install_status.txt
+                echo -e $enter2
+                showmsg "$soft_name $continue_install_string_cn"    "$soft_name $continue_install_string"    $color_green    $color_white
+            fi
         fi
         echo -e $enter2
     done;
