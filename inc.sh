@@ -25,19 +25,22 @@ release_md='0901'
 release_date=${release_y}${release_md}
 
 data_root='/mydata'
-www_root='${data_root}/www'
-python_env_root = '${data_root}/env'
+www_root="${data_root}/www"
+python_env_root = "${data_root}/env"
 
-if [ ! -d $data_root ]; then
-    mkdir -p $data_root
+if [ ! -d "${data_root}" ]; then
+    if [ ! -d '/mnt/data' ]; then
+        mkdir /mnt/data
+    fi
+    ln -s /mnt/data ${data_root}
 fi
 
-if [ ! -d "$www_root" ]; then
-    mkdir -p "$www_root";
+if [ ! -d "${www_root}" ]; then
+    mkdir -p "${www_root}";
 fi
 
-if [ ! -d "$python_env_root" ]; then
-    mkdir -p "$python_env_root";
+if [ ! -d "${python_env_root}" ]; then
+    mkdir -p "${python_env_root}";
 fi
 
 color_cyan="[40;36m"
@@ -59,7 +62,6 @@ enter8=${enter4}${enter4};
 
 system_hardware=`uname -m`;
 uname=`uname`
-
 server_name=`uname -n`;
 
 user_del='userdel';
@@ -125,10 +127,10 @@ showmsg () {
 runtime () {
     if [ "$1" = 'start' ]; then
         start_time=`date +"%s"`
-        echo ${start_time} > "/var/tmp/LGW_runtime"
+        echo ${start_time} > "/var/tmp/geowebenv_runtime"
         sleep 2
     else
-        start_time=`cat /var/tmp/LGW_runtime`
+        start_time=`cat /var/tmp/geowebenv_runtime`
         end_time=`date +"%s"`
         total_s=$(($end_time - $start_time))
         total_m=$(($total_s / 60))
@@ -142,7 +144,7 @@ runtime () {
         fi
 
         if [ "$1" = 'end' ]; then
-            echo "Install LGW runtime: ${time_cn}(${time_en})" > /var/tmp/LGW_runtime
+            echo "Install GeoWebEnv Runtime: ${time_cn}(${time_en})" > /var/tmp/geowebenv_runtime
             showmsg "总耗时：${time_cn}"     "Total runtime: ${time_en}"     $color_yellow    $color_white
         else
             showmsg "已耗时：${time_cn}"     "Runtime: ${time_en}"     $color_yellow    $color_white
@@ -155,11 +157,11 @@ install_func () {
         $3
     fi
     if [ ! -e $2 ]; then
-        echo -e "$1 $stop_install_string" > /tmp/LGW_install_status.txt
+        echo -e "$1 $stop_install_string" > /tmp/geowebenv_install_status.txt
         showmsg "$1 $stop_install_string_cn"    "$1 $stop_install_string"    $color_red    $color_white
         exit
     else
-        echo -e "$1 $continue_install_string" > /tmp/LGW_install_status.txt
+        echo -e "$1 $continue_install_string" > /tmp/geowebenv_install_status.txt
         echo -e $enter2
         showmsg "$1 $continue_install_string_cn"    "$1 $continue_install_string"    $color_green    $color_white
         echo -e $enter2
@@ -176,13 +178,20 @@ install_func_online () {
                 apt-get -y install $soft_name;
             fi
         elif [ "${linux_type}" = 'RedHat' ]; then
-            if [ "`yum list installed |grep -c ${soft_name}`" -eq "0" ]; then
+            if [ "`yum list installed | grep -c ${soft_name}`" -eq "0" ]; then
                 yum -y install $soft_name;
             fi
         fi
-        echo -e "$soft_name $continue_install_string" > /tmp/LGW_install_status.txt
-        echo -e $enter2
-        showmsg "$soft_name $continue_install_string_cn"    "$soft_name $continue_install_string"    $color_green    $color_white
+        if [ `rpm -qa | grep -c ${soft_name}` -eq "0" ]; then
+            echo -e "$soft_name $continue_install_string" > /tmp/geowebenv_install_status.txt
+            echo -e $enter2
+            showmsg "$soft_name $continue_install_string_cn"    "$soft_name $continue_install_string"    $color_green    $color_white
+        else
+            echo -e "$1 $stop_install_string" > /tmp/geowebenv_install_status.txt
+            echo -e $enter2
+            showmsg "$1 $stop_install_string_cn"    "$1 $stop_install_string"    $color_red    $color_white
+            exit
+        fi
         echo -e $enter2
     done;
     echo -e $enter4

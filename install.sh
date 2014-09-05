@@ -34,13 +34,6 @@ fi
 
 chmod 755 ./*
 
-if [ ! -d '/mydata' ]; then
-    if [ ! -d /mnt/data ]; then
-        mkdir /mnt/data
-    fi
-    ln -s /mnt/data /mydata
-fi
-
 echo
 echo
 echo "Starting to install $geowebenv_version, Please wait..."
@@ -173,6 +166,6 @@ pip install tornado
 deactivate
 
 ./copyright.sh
-rm -rf /tmp/nmLGW_install_status.txt
+rm -rf /tmp/nmgeowebenv_install_status.txt
 
 # cd ~
