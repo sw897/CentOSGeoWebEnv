@@ -26,7 +26,7 @@ release_date=${release_y}${release_md}
 
 data_root='/mydata'
 www_root="${data_root}/www"
-python_env_root = "${data_root}/env"
+python_env_root="${data_root}/env"
 
 if [ ! -d "${data_root}" ]; then
     if [ ! -d '/mnt/data' ]; then

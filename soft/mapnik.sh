@@ -12,11 +12,12 @@
 
 if [ ! -d mapnik ]; then
     git clone git://github.com/mapnik/mapnik.git mapnik
+    cd mapnik
 else
+    cd mapnik
     git pull
 fi
 
-cd mapnik
 ./configure
 make
 make install
