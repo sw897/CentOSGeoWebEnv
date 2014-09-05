@@ -187,9 +187,9 @@ install_func_online () {
             echo -e $enter2
             showmsg "$soft_name $continue_install_string_cn"    "$soft_name $continue_install_string"    $color_green    $color_white
         else
-            echo -e "$1 $stop_install_string" > /tmp/geowebenv_install_status.txt
+            echo -e "$soft_name $stop_install_string" > /tmp/geowebenv_install_status.txt
             echo -e $enter2
-            showmsg "$1 $stop_install_string_cn"    "$1 $stop_install_string"    $color_red    $color_white
+            showmsg "$soft_name $stop_install_string_cn"    "$soft_name $stop_install_string"    $color_red    $color_white
             exit
         fi
         echo -e $enter2
