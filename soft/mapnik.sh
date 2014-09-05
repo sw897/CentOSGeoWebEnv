@@ -13,7 +13,7 @@
 if [ ! -d mapnik ]; then
     git clone git://github.com/mapnik/mapnik.git mapnik
 else
-    git
+    git pull
 fi
 
 cd mapnik
