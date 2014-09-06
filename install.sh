@@ -74,17 +74,21 @@ install_func_online "bzip2-devel zlib-devel"
 
 install_func_online "ncurses-devel ntp openssl"
 
+install_func_online "libicu-devel libevent-devel libtool-ltdl-devel libmcrypt-devel"
+
 install_func_online "libjpeg-turbo-devel libpng-devel giflib-devel libtiff-devel"
+
+install_func_online "freetype-devel gd gd-devel glib2-devel cairo-devel"
 
 install_func_online "libxml2-devel libxslt-devel"
 
 install_func_online "libyaml libyaml-devel"
 
-install_func_online "libicu-devel freetype-devel glib2-devel gd gd-devel libevent-devel libtool-ltdl-devel libmcrypt-devel"
-
 install_func_online "curl libcurl-devel"
 
 install_func_online "sqlite sqlite-devel"
+
+install_func "Devtoolset" "/opt/rh/devtoolset-2/root/usr/bin/gcc" "./soft/devtoolset.sh"
 
 install_func "Boost" "/usr/local/lib/libboost_filesystem.so" "./soft/boost.sh"
 
@@ -94,7 +98,7 @@ update_ldconfig
 
 # mysql
 $kill_all mysqld
-install_func_online "mysql mysql-devel mysql-server"
+install_func_online "mysql mysql-server"
 mysqldatadir=${data_root}/mysql_data
 if [ ! -d "$mysqldatadir" ]; then
     mkdir -p "$mysqldatadir";
@@ -121,10 +125,10 @@ install_func_online "json-c-devel xerces-c-devel expat-devel freexl-devel libaio
 update_ldconfig
 
 install_func "Spatialite"    "/usr/local/lib/libspatialite.so"    "./soft/spatialite.sh"
-install_func "Gdal"    "/usr/local/gdal/lib/libgdal.so"    "./soft/gdal.sh"
+install_func "Gdal"    "/usr/local/lib/libgdal.so"    "./soft/gdal.sh"
 install_func "PostGIS"    "/usr/local/pgsql/bin/shp2pgsql"    "./soft/postgis.sh"
 # mapnik
-install_func "Mapnik"    "/usr/local/lib/mapnik"    "./soft/mapnik.sh"
+install_func "Mapnik"    "/usr/local/lib/libmapnik.so"    "./soft/mapnik.sh"
 
 echo 'export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib:/lib"' >> "/etc/profile";
 . "/etc/profile";

@@ -17,12 +17,12 @@ if [ ! -f harfbuzz-${soft_version}.tar.bz2 ]; then
     wget http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-${soft_version}.tar.bz2
 fi
 tar -jxvf harfbuzz-${soft_version}.tar.bz2
-cd harfbuzz-${soft_version}/harfbuzz-${soft_version}
+cd harfbuzz-${soft_version}
 
 ./configure
 make
 make install
 
-cd ../..
+cd ..
 rm -rf harfbuzz-${soft_version}
 # rm -f harfbuzz-${soft_version}.tar.bz2

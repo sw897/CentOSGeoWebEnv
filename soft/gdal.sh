@@ -20,6 +20,7 @@ tar -zxvf gdal-${soft_version}.tar.gz
 cd gdal-${soft_version}
 
 ./configure \
+--with-pg=/usr/local/pgsql/bin/pg_config \
 --with-grass=no \
 --with-gta=no \
 --with-libtiff=internal \
