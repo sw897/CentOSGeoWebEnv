@@ -18,6 +18,7 @@ else
     git pull
 fi
 
+scl enable devtoolset-2 bash
 ./configure
 make
 make install

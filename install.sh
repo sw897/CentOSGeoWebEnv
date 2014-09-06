@@ -78,26 +78,25 @@ install_func_online "wget git"
 
 install_func_online "bzip2-devel zlib-devel"
 
-install_func_online "vixie-cron ncurses-devel ntp openssl-devel gmp-devel"
+install_func_online "ncurses-devel ntp openssl"
 
-install_func "Iconv"    "/usr/local/bin/iconv"    "./soft/libiconv.sh"
-
-install_func_online "libjpeg-devel libpng-devel giflib-devel libtiff-devel libjpeg-devel"
+install_func_online "libjpeg-devel libpng-devel giflib-devel libtiff-devel"
 
 install_func_online "libxml2-devel libxslt-devel"
 
 install_func_online "libyaml libyaml-devel"
 
-install_func_online "libicu-devel freetype-devel gd gd-devel libevent-devel libtool-ltdl-devel libmcrypt-devel"
+install_func_online "libicu-devel freetype-devel glib2-devel gd gd-devel libevent-devel libtool-ltdl-devel libmcrypt-devel"
 
 install_func_online "curl libcurl-devel"
 
-update_ldconfig
-
-# sqlite
 install_func_online "sqlite sqlite-devel"
 
-install_func "PgSQL"    "/usr/local/bin/createdb"    "./soft/pgsql.sh"
+install_func "Boost" "/usr/local/lib/libboost_filesystem.so" "./soft/boost.sh"
+
+install_func "harfBuzz" "/usr/local/lib/libharfbuzz.so" "./soft/harfbuzz.sh"
+
+update_ldconfig
 
 # mysql
 $kill_all mysqld
@@ -109,6 +108,9 @@ fi
 mysql_install_db --datadir=${mysqldatadir}
 service mysqld restart
 #service mysqld stop
+
+# pgsql
+install_func "PgSQL"    "/usr/local/pgsql/bin/createdb"    "./soft/pgsql.sh"
 
 update_ldconfig
 
@@ -122,12 +124,11 @@ install_func_online "nginx"
 install_func "Proj4"    "/usr/local/lib/libproj.so"    "./soft/proj.sh"
 install_func "Geos"    "/usr/local/bin/geos-config"    "./soft/geos.sh"
 install_func_online "json-c-devel xerces-c-devel expat-devel freexl-devel libaio-devel"
-
 update_ldconfig
 
 install_func "Spatialite"    "/usr/local/lib/libspatialite.so"    "./soft/spatialite.sh"
 install_func "Gdal"    "/usr/local/gdal/lib/libgdal.so"    "./soft/gdal.sh"
-install_func "PostGIS"    "/usr/local/bin/shp2pgsql"    "./soft/postgis.sh"
+install_func "PostGIS"    "/usr/local/pgsql/bin/shp2pgsql"    "./soft/postgis.sh"
 # mapnik
 install_func "Mapnik"    "/usr/local/lib/mapnik"    "./soft/mapnik.sh"
 

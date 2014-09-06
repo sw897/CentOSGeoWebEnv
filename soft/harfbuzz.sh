@@ -10,19 +10,19 @@
 # ******************************************************************************
 #
 
-soft_version="1.14"
+soft_version="0.9.35"
 
-rm -rf libiconv-${soft_version}
-if [ ! -f libiconv-${soft_version}.tar.gz ]; then
-    wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-${soft_version}.tar.gz
+rm -rf harfbuzz-${soft_version}
+if [ ! -f harfbuzz-${soft_version}.tar.bz2 ]; then
+    wget http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-${soft_version}.tar.bz2
 fi
-tar -zxvf libiconv-${soft_version}.tar.gz
-cd libiconv-${soft_version}
+tar -jxvf harfbuzz-${soft_version}.tar.bz2
+cd harfbuzz-${soft_version}/harfbuzz-${soft_version}
 
 ./configure
 make
 make install
 
-cd ..
-rm -rf libiconv-${soft_version}
-# rm -f libiconv-${soft_version}.tar.gz
+cd ../..
+rm -rf harfbuzz-${soft_version}
+# rm -f harfbuzz-${soft_version}.tar.bz2

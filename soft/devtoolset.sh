@@ -10,17 +10,13 @@
 # ******************************************************************************
 #
 
-rm -rf boost_1_56_0
-if [ ! -f boost_1_56_0.tar.gz ]; then
-    wget http://jaist.dl.sourceforge.net/project/boost/boost/1.56.0/boost_1_56_0.tar.gz
+soft_version="2"
+
+if [ ! -f /etc/yum.repos.d/devtools-2.repo ]; then
+    wget http://people.centos.org/tru/devtools-2/devtools-2.repo -P /etc/yum.repos.d
+    echo "enabled=1" >> /etc/yum.repos.d/devtools-2.repo
 fi
-tar -zxvf boost_1_56_0.tar.gz
-cd boost_1_56_0
 
-./bootstrap.sh
-./bjam -sTOOLS=gcc install
+yum install --enablerepo=centosplus -y devtoolset-2-gcc devtoolset-2-binutils devtoolset-2-gcc-c++
 
-
-cd ..
-rm -rf boost_1_56_0
-# rm -f boost_1_56_0.tar.gz
+# scl enable devtoolset-2 bash

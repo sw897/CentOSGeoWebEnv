@@ -11,6 +11,7 @@
 #
 
 soft_version="9.3.5"
+soft_root="/usr/local/pgsql"
 pgsql_data="/mydata/pgsql_data"
 
 user_del='userdel';
@@ -34,30 +35,44 @@ fi
 tar -jxvf postgresql-${soft_version}.tar.bz2
 cd postgresql-${soft_version}
 
-./configure --with-python
+./configure --prefix=${soft_root} --with-python
 make
 make install
 
 mkdir ${pgsql_data}
-chown -R postgres:postgres  -U postgres
-chmod -R 0700 /home/pgsql_data
+chown -R postgres:postgres ${pgsql_data}
+chmod -R 0700 ${pgsql_data}
 if [ -f "${pgsql_data}/pgsql.log" ]; then
     rm -rf ${pgsql_data}*
 fi
-su postgres -c "initdb -U postgres -D ${pgsql_data}"
+su postgres -c "${soft_root}/bin/initdb -U postgres -D ${pgsql_data}"
 chmod -R 0700 ${pgsql_data}
 
 echo '#' > ${pgsql_data}/pgsql.log;
 chown postgres ${pgsql_data}/pgsql.log
-su postgres -c "pg_ctl -U postgres -D ${pgsql_data} -l ${pgsql_data}/pgsql.log start"
+su postgres -c "${soft_root}/bin/pg_ctl -U postgres -D ${pgsql_data} -l ${pgsql_data}/pgsql.log start"
 chmod -R 0700 ${pgsql_data}
 sleep 3;
 
-createdb -T template0 -U postgres -E UTF8 newmap
+${soft_root}/bin/createdb -T template0 -U postgres -E UTF8 newmap
 chmod -R 0700 ${pgsql_data}
 
-psql -U postgres -c "alter role postgres password 'postgres';"
+${soft_root}/bin/psql -U postgres -c "alter role postgres password 'postgres';"
 chmod -R 0700 ${pgsql_data}
+
+
+ln -sf $soft_root/lib/* /usr/lib/
+ln -s $soft_root/include/* /usr/include/
+
+if [ `uname` = 'Linux' ]; then
+    export LD_LIBRARY_PATH="/usr/local/lib:/usr/local/pgsql/lib:/usr/lib:/lib"
+
+    if [ ! `grep -l "$soft_root/lib"    '/etc/ld.so.conf'` ]; then
+        echo "$soft_root/lib" >> /etc/ld.so.conf
+    fi
+    ldconfig
+fi
+
 
 cd ..
 cat pg_hba.conf > -U postgres/pg_hba.conf

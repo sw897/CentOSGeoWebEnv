@@ -10,9 +10,9 @@
 # ******************************************************************************
 #
 
-postgis_ver="postgis-2.1"
-soft_root="/usr/local"
+pgsql_path="/usr/local/pgsql"
 pgsql_data="/mydata/pgsql_data"
+postgis_ver="postgis-2.1"
 soft_version="2.1.3"
 
 rm -rf postgis-${soft_version}
@@ -23,15 +23,15 @@ fi
 tar -zxvf postgis-${soft_version}.tar.gz
 cd postgis-${soft_version}
 
-./configure
+./configure --with-pgconfig=/usr/local/pgsql/bin/pg_config \
 make
 make  install
 
 #create db
-createdb -U postgres -E UTF8 postgis
-createlang plpgsql -U postgres postgis
-psql -U postgres -d postgis -f /usr/local/share/contrib/${postgis_ver}/postgis.sql
-psql -U postgres -d postgis -f /usr/local/share/contrib/${postgis_ver}/spatial_ref_sys.sql
+${pgsql_path}/bin/createdb -U postgres -E UTF8 postgis
+${pgsql_path}/bin/createlang -U postgres plpgsql postgis
+${pgsql_path}/bin/psql -U postgres -d postgis -f ${pgsql_path}/share/contrib/${postgis_ver}/postgis.sql
+${pgsql_path}/bin/psql -U postgres -d postgis -f ${pgsql_path}/share/contrib/${postgis_ver}/spatial_ref_sys.sql
 chmod -R 0700 ${pgsql_data}
 
 cd ..
