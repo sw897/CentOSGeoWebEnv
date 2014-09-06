@@ -64,12 +64,6 @@ fi
 
 ldconfig
 
-if [ -d "/usr/lib64" ]; then
-    ln -s /usr/lib64/* /usr/lib/
-fi
-
-ldconfig
-
 yum update -y
 
 install_func_online "gcc gcc-c++ readline-devel autoconf automake make cmake libtool patch flex m4"
@@ -80,7 +74,7 @@ install_func_online "bzip2-devel zlib-devel"
 
 install_func_online "ncurses-devel ntp openssl"
 
-install_func_online "libjpeg-devel libpng-devel giflib-devel libtiff-devel"
+install_func_online "libjpeg-turbo-devel libpng-devel giflib-devel libtiff-devel"
 
 install_func_online "libxml2-devel libxslt-devel"
 

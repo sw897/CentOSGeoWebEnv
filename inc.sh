@@ -207,14 +207,6 @@ rm_soft () {
 
 update_ldconfig () {
 
-    if [ `uname` = "Linux" ]; then
-        ldconfig
-    fi
-
-    if [ -d "/usr/lib64" ]; then
-        ln -s /usr/lib64/* /usr/lib/
-    fi
-
     if [ -d "/usr/local/lib64" ]; then
         ln -s /usr/local/lib64/* /usr/local/lib/
     fi
