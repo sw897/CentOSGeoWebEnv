@@ -10,7 +10,7 @@
 # ******************************************************************************
 #
 
-soft_version="1.10.1"
+soft_version="1.11.0"
 
 rm -rf gdal-${soft_version}
 if [ ! -f gdal-${soft_version}.tar.gz ]; then

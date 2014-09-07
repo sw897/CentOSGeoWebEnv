@@ -97,15 +97,15 @@ install_func "harfBuzz" "/usr/local/lib/libharfbuzz.so" "./soft/harfbuzz.sh"
 update_ldconfig
 
 # mysql
-$kill_all mysqld
 install_func_online "mysql mysql-server"
 mysqldatadir=${data_root}/mysql_data
 if [ ! -d "$mysqldatadir" ]; then
     mkdir -p "$mysqldatadir";
+    $kill_all mysqld
+    mysql_install_db --datadir=${mysqldatadir}
+    service mysqld restart
+    #service mysqld stop
 fi
-mysql_install_db --datadir=${mysqldatadir}
-service mysqld restart
-#service mysqld stop
 
 # pgsql
 install_func "PgSQL"    "/usr/local/pgsql/bin/createdb"    "./soft/pgsql.sh"
@@ -139,30 +139,8 @@ if [ `grep -l "exit 0"    "$start_script_file"` ]; then
     str_replace    "exit 0/#exit 0"    "$start_script_file";
 fi
 
-# python 3th party
-pip install virtualenv
-virtualenv --no-site-packages ${python_env_root}
-source ${python_env_root}/bin/activate
-
-install_func "pysqlite"    "${python_env_root}/lib/python2.6/site-packages/pysqlite2"    "./soft/pysqlite.sh"
-pip install simplejson
-pip install lxml
-pip install pillow
-pip install pyyaml
-pip install eventlet
-pip install shapely
-pip install numpy
-
-pip install django
-pip install south
-pip install six
-pip install tornado
-
-# gdal
-
-# mapnik
-
-deactivate
+# python virtual env
+install_func "python_env" "${python_env_root}/bin/activate" "./soft/python-env.sh"
 
 ./copyright.sh
 rm -rf /tmp/nmgeowebenv_install_status.txt

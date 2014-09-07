@@ -18,6 +18,11 @@ else
     git pull
 fi
 
-./configure CC=/opt/rh/devtoolset-2/root/usr/bin/gcc CXX=/opt/rh/devtoolset-2/root/usr/bin/g++
+./configure \
+CC=/opt/rh/devtoolset-2/root/usr/bin/gcc \
+CXX=/opt/rh/devtoolset-2/root/usr/bin/g++ \
+PG_CONFIG=/usr/local/pgsql/bin/pg_config \
+INPUT_PLUGINS=all
+
 make
 make install
