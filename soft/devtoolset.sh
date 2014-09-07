@@ -19,4 +19,4 @@ fi
 
 yum install --enablerepo=centosplus -y devtoolset-2-gcc devtoolset-2-binutils devtoolset-2-gcc-c++
 
-scl enable devtoolset-2 bash
+#scl enable devtoolset-2 bash

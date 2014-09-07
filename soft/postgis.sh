@@ -23,7 +23,7 @@ fi
 tar -zxvf postgis-${soft_version}.tar.gz
 cd postgis-${soft_version}
 
-./configure --with-pgconfig=/usr/local/pgsql/bin/pg_config \
+./configure --with-pgconfig=/usr/local/pgsql/bin/pg_config
 make
 make  install
 

@@ -18,7 +18,6 @@ else
     git pull
 fi
 
-scl enable devtoolset-2 bash
-./configure
+./configure CC=/opt/rh/devtoolset-2/root/usr/bin/gcc CXX=/opt/rh/devtoolset-2/root/usr/bin/g++
 make
 make install
