@@ -78,7 +78,7 @@ fi
 
 
 cd ..
-cat pg_hba.conf > -U postgres/pg_hba.conf
+cat pg_hba.conf > ${pgsql_data}/pg_hba.conf
 
 rm -rf postgresql-${soft_version}
 # rm -f postgresql-${soft_version}.tar.bz2
