@@ -22,7 +22,8 @@ fi
 CC=/opt/rh/devtoolset-2/root/usr/bin/gcc \
 CXX=/opt/rh/devtoolset-2/root/usr/bin/g++ \
 PG_CONFIG=/usr/local/pgsql/bin/pg_config \
-INPUT_PLUGINS=all
+CAIRO=False \
+INPUT_PLUGINS=raster,shape,sqlite,postgis,ogr,gdal
 
 make
 make install
