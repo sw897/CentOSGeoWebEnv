@@ -10,6 +10,7 @@
 # ******************************************************************************
 #
 
+
 if [ ! -d mapnik ]; then
     git clone git://github.com/mapnik/mapnik.git mapnik
     cd mapnik
@@ -17,6 +18,10 @@ else
     cd mapnik
     git pull
 fi
+git checkout 2.3.x
+#git checkout 648dea63ac6600529aab94e4807bc45992af2061
+
+#`scl enable devtoolset-2 bash`
 
 ./configure \
 CC=/opt/rh/devtoolset-2/root/usr/bin/gcc \

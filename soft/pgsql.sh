@@ -14,8 +14,8 @@ soft_version="9.3.5"
 soft_root="/usr/local/pgsql"
 pgsql_data="/mydata/pgsql_data"
 
-if [ ! -d "$pgsql_data" ]; then
-    mkdir -p "$pgsql_data";
+if [ ! -d "${pgsql_data}" ]; then
+    mkdir -p "${pgsql_data}";
 fi
 
 user_del='userdel';

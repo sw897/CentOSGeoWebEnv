@@ -40,7 +40,8 @@ pip install numpy
 pip install django
 pip install south
 pip install six
-pip install tornado
+
+pip install uwsgi
 
 # gdal
 # mv -s ${sys_python_packages}/GDAL-${gdal_version}-py${python_version}-linux-x86_64.egg/EGG-INFO ${sys_python_packages}/GDAL-${gdal_version}-py${python_version}-linux-x86_64.egg/GDAL-${gdal_version}-py${python_version}.egg-info
