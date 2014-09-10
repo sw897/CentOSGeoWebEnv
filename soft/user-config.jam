@@ -1,0 +1,15 @@
+import option ;
+import feature ;
+if ! gcc in [ feature.values <toolset> ]
+{
+    using gcc ;
+}
+project : default-build <toolset>gcc ;
+using python
+     : 2.7 # version
+     : /usr/local/bin/python2.7 # cmd-or-prefix
+     : /usr/local/include/python2.7/ # includes
+     : /usr/local/lib/python2.7/config/ # directory holding libpython
+     : <toolset>gcc # condition
+     ;
+libraries = --with-python ;
