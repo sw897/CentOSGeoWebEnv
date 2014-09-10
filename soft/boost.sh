@@ -26,8 +26,8 @@ elif [ -e "../soft/user-config.jam" ]; then
     cp ../soft/user-config.jam > ./user-config.jam
 fi
 
-bjam --with-python -a -j2 --ignore-site-config --user-config=user-config.jam toolset=gcc stage -d2
-cp stage/lib/libboost_python.so* /usr/local/lib
+./bjam --with-python -a -j2 --ignore-site-config --user-config=user-config.jam toolset=gcc stage -d2
+cp -f stage/lib/libboost_python.so* /usr/local/lib
 
 cd ..
 rm -rf boost_1_56_0
