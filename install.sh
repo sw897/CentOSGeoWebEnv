@@ -116,7 +116,7 @@ update_ldconfig
 
 # python27
 # install_func_online "python python-devel python-pip"
-install_func "python" "/usr/local/bin/python27" "./soft/python.sh"
+install_func "python" "/usr/local/bin/python2.7" "./soft/python.sh"
 
 # nginx
 install_func_online "nginx"
