@@ -23,12 +23,12 @@ git checkout 2.3.x
 
 #`scl enable devtoolset-2 bash`
 
-./configure \
+PYTHON=python2.7 ./configure \
 CC=/opt/rh/devtoolset-2/root/usr/bin/gcc \
 CXX=/opt/rh/devtoolset-2/root/usr/bin/g++ \
 PG_CONFIG=/usr/local/pgsql/bin/pg_config \
 CAIRO=False \
 INPUT_PLUGINS=raster,shape,sqlite,postgis,ogr,gdal
 
-make
+make PYTHON=python2.7
 make install

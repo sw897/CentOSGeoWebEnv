@@ -20,8 +20,8 @@ tar -zxvf pysqlite-${soft_version}.tar.gz
 cat pysqlite_setup.cfg > pysqlite-${soft_version}/setup.cfg
 cd pysqlite-${soft_version}
 
-python setup.py build
-python setup.py install
+python2.7 setup.py build
+python2.7 setup.py install
 
 cd ..
 rm -rf pysqlite-${soft_version}

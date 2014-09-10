@@ -199,6 +199,34 @@ install_func_online () {
     sleep $sleep_time
 }
 
+install_func_online_plus () {
+    for soft_name in $1; do
+        if [ "${linux_type}" = 'Debian' ]; then
+            if [ "`dpkg -l | grep ii | grep -c ${soft_name}`" -eq "0" ]; then
+                apt-get -y install $soft_name;
+            fi
+        elif [ "${linux_type}" = 'RedHat' ]; then
+            if [ "`yum list installed | grep -c ${soft_name}`" -eq "0" ]; then
+                yum -y install --enablerepo=centosplus $soft_name;
+            fi
+            if [ `rpm -qa | grep -c ${soft_name}` -eq "0" ]; then
+                echo -e "$soft_name $stop_install_string" > /tmp/geowebenv_install_status.txt
+                echo -e $enter2
+                showmsg "$soft_name $stop_install_string_cn"    "$soft_name $stop_install_string"    $color_red    $color_white
+                exit
+            else
+                echo -e "$soft_name $continue_install_string" > /tmp/geowebenv_install_status.txt
+                echo -e $enter2
+                showmsg "$soft_name $continue_install_string_cn"    "$soft_name $continue_install_string"    $color_green    $color_white
+            fi
+        fi
+        echo -e $enter2
+    done;
+    echo -e $enter4
+    runtime
+    sleep $sleep_time
+}
+
 rm_soft () {
     rm -rf $1
     showmsg "$2 删除成功！"    "$2 was successfully deleted!"    $color_green $color_white

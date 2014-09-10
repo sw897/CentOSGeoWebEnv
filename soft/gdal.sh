@@ -36,8 +36,8 @@ make install
 
 # 单独编译python
 cd swig/python
-python setup.py build
-python setup.py install
+python2.7 setup.py build
+python2.7 setup.py install
 cd ../..
 
 

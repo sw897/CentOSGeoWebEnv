@@ -74,6 +74,8 @@ install_func_online "bzip2-devel zlib-devel"
 
 install_func_online "ncurses-devel ntp openssl"
 
+install_func_online_plus "openssl-devel"
+
 install_func_online "libicu-devel libevent-devel libtool-ltdl-devel libmcrypt-devel"
 
 install_func_online "libjpeg-turbo-devel libpng-devel giflib-devel libtiff-devel"

@@ -23,7 +23,7 @@ gdal_version="1.11.0"
 pip install virtualenv
 virtualenv --no-site-packages ${python_env_root}
 
-sys_python_packages="/usr/local/l/python${python_version}/site-packages"
+sys_python_packages="/usr/local/lib/python${python_version}/site-packages"
 env_python_packages=${python_env_root}/lib/python${python_version}/site-packages/
 
 source ${python_env_root}/bin/activate
@@ -37,12 +37,7 @@ pip install eventlet
 pip install shapely
 pip install numpy
 
-if [ ${python_version} == "2.6" ]; then
-    pip install -v django==1.6
-else
-    pip install django
-fi
-
+pip install django
 pip install south
 pip install six
 
