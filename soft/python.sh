@@ -10,6 +10,12 @@
 # ******************************************************************************
 #
 
+if [ -e "../inc.sh" ]; then
+    . "../inc.sh"
+elif [ -e "./inc.sh" ]; then
+    . "./inc.sh"
+fi
+
 soft_version="2.7.8"
 
 rm -rf Python-${soft_version}
@@ -35,3 +41,6 @@ fi
 
 python2.7 ez_setup.py
 easy_install pip
+
+pip install virtualenv
+virtualenv --no-site-packages ${python_env_root}

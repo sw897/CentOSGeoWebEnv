@@ -20,9 +20,6 @@ fi
 python_version="2.7"
 gdal_version="1.11.0"
 
-pip install virtualenv
-virtualenv --no-site-packages ${python_env_root}
-
 sys_python_packages="/usr/local/lib/python${python_version}/site-packages"
 env_python_packages=${python_env_root}/lib/python${python_version}/site-packages/
 

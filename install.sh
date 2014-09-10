@@ -92,6 +92,9 @@ install_func_online "sqlite sqlite-devel"
 
 install_func "Devtoolset" "/opt/rh/devtoolset-2/root/usr/bin/gcc" "./soft/devtoolset.sh"
 
+# python27
+install_func "python" "/usr/local/bin/python2.7" "./soft/python.sh"
+
 install_func "Boost" "/usr/local/lib/libboost_filesystem.so" "./soft/boost.sh"
 
 install_func "harfBuzz" "/usr/local/lib/libharfbuzz.so" "./soft/harfbuzz.sh"
@@ -113,10 +116,6 @@ fi
 install_func "PgSQL"    "/usr/local/pgsql/bin/createdb"    "./soft/pgsql.sh"
 
 update_ldconfig
-
-# python27
-# install_func_online "python python-devel python-pip"
-install_func "python" "/usr/local/bin/python2.7" "./soft/python.sh"
 
 # nginx
 install_func_online "nginx"
@@ -143,7 +142,7 @@ if [ `grep -l "exit 0"    "$start_script_file"` ]; then
 fi
 
 # python virtual env
-install_func "python_env" "${python_env_root}/bin/activate" "./soft/python-env.sh"
+install_func "python_env" "${python_env_root}/lib/python2.7/site-packages/pysqlite2" "./soft/python-env.sh"
 
 ./copyright.sh
 rm -rf /tmp/nmgeowebenv_install_status.txt
