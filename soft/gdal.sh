@@ -21,6 +21,7 @@ cd gdal-${soft_version}
 
 ./configure \
 --with-pg=/usr/local/pgsql/bin/pg_config \
+--with-sqlite3=/usr/local \
 --with-grass=no \
 --with-gta=no \
 --with-libtiff=internal \
