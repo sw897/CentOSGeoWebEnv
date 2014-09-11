@@ -43,4 +43,3 @@ python2.7 ez_setup.py
 easy_install pip
 
 pip install virtualenv
-virtualenv --no-site-packages ${python_env_root}

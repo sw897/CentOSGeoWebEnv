@@ -23,6 +23,7 @@ gdal_version="1.11.0"
 sys_python_packages="/usr/local/lib/python${python_version}/site-packages"
 env_python_packages=${python_env_root}/lib/python${python_version}/site-packages/
 
+virtualenv --no-site-packages ${python_env_root}
 source ${python_env_root}/bin/activate
 
 # install_func "pysqlite"    "${env_python_packages}/pysqlite2"    "./soft/pysqlite.sh"

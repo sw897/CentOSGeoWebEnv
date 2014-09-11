@@ -89,7 +89,7 @@ install_func_online "libyaml libyaml-devel"
 install_func_online "curl libcurl-devel"
 
 # install_func_online "sqlite sqlite-devel"
-install_func "sqlite" "/usr/local/lib/libsqlite.so" "./soft/sqlite.sh"
+install_func "sqlite" "/usr/local/lib/libsqlite3.so" "./soft/sqlite.sh"
 
 install_func "devtoolset" "/opt/rh/devtoolset-2/root/usr/bin/gcc" "./soft/devtoolset.sh"
 
