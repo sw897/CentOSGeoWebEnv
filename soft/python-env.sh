@@ -52,7 +52,7 @@ pip install eventlet
 pip install shapely
 pip install numpy
 
-pip install django
+pip install -v django==1.6.6
 pip install south
 pip install six
 
