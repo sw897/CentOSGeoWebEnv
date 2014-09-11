@@ -23,6 +23,8 @@ git checkout 2.3.x
 
 #`scl enable devtoolset-2 bash`
 
+make clean
+
 PYTHON=python2.7 ./configure \
 CC=/opt/rh/devtoolset-2/root/usr/bin/gcc \
 CXX=/opt/rh/devtoolset-2/root/usr/bin/g++ \
