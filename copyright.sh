@@ -2,9 +2,9 @@
 #
 # ******************************************************************************
 # Software:     CentOSGeoWebEnv
-# Author:       sw
-# Website:      www.chinamap.me
-# Email:        sunwei.r@gmail.com
+# Author:       mapdb
+# Website:      www.mapdb.cn
+# Email:        mapdb2014@gmail.com
 # ------------------------------------++++
 # Thank you for choosing CentOSGeoWebEnv!
 # ******************************************************************************
@@ -20,8 +20,8 @@ echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+"
 echo "+ Software:  $geowebenv_version"
 echo "+ Author:    sw"
-echo "+ Website:   www.chinamap.me"
-echo "+ Email:     sunwei.r@gmail.com"
+echo "+ Website:   www.mapdb.cn"
+echo "+ Email:     mapdb2014@gmail.com"
 echo "+"
 echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo

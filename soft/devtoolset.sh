@@ -2,9 +2,9 @@
 #
 # ******************************************************************************
 # Software:     CentOSGeoWebEnv
-# Author:       sw
-# Website:      www.chinamap.me
-# Email:        sunwei.r@gmail.com
+# Author:       mapdb
+# Website:      www.mapdb.cn
+# Email:        mapdb2014@gmail.com
 # ------------------------------------++++
 # Thank you for choosing CentOSGeoWebEnv!
 # ******************************************************************************
