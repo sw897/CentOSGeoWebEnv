@@ -88,12 +88,12 @@ install_func_online "libyaml libyaml-devel"
 
 install_func_online "curl libcurl-devel"
 
+install_func "devtoolset" "/opt/rh/devtoolset-2/root/usr/bin/gcc" "./soft/devtoolset.sh"
+
 # install_func_online "sqlite sqlite-devel"
 install_func "sqlite" "/usr/local/lib/libsqlite3.so" "./soft/sqlite.sh"
 
-install_func "devtoolset" "/opt/rh/devtoolset-2/root/usr/bin/gcc" "./soft/devtoolset.sh"
-
-update_ldconfig
+ldconfig
 
 # python27
 install_func "python" "/usr/local/bin/python2.7" "./soft/python.sh"
@@ -102,7 +102,7 @@ install_func "boost" "/usr/local/lib/libboost_filesystem.so" "./soft/boost.sh"
 
 install_func "harfBuzz" "/usr/local/lib/libharfbuzz.so" "./soft/harfbuzz.sh"
 
-update_ldconfig
+ldconfig
 
 # mysql
 install_func_online "mysql mysql-server"
@@ -118,7 +118,7 @@ fi
 # pgsql
 install_func "pgsql"    "/usr/local/pgsql/bin/createdb"    "./soft/pgsql.sh"
 
-update_ldconfig
+ldconfig
 
 # nginx
 install_func_online "nginx"
@@ -126,8 +126,9 @@ install_func_online "nginx"
 # osgeo
 install_func "proj4"    "/usr/local/lib/libproj.so"    "./soft/proj.sh"
 install_func "geos"    "/usr/local/bin/geos-config"    "./soft/geos.sh"
+
 install_func_online "json-c-devel xerces-c-devel expat-devel freexl-devel libaio-devel"
-update_ldconfig
+ldconfig
 
 install_func "spatialite"    "/usr/local/lib/libspatialite.so"    "./soft/spatialite.sh"
 install_func "gdal"    "/usr/local/lib/libgdal.so"    "./soft/gdal.sh"
@@ -135,8 +136,11 @@ install_func "postgis"    "/usr/local/pgsql/bin/shp2pgsql"    "./soft/postgis.sh
 # mapnik
 install_func "mapnik"    "/usr/local/lib/libmapnik.so"    "./soft/mapnik.sh"
 
-echo 'export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib:/lib"' >> "/etc/profile";
-. "/etc/profile";
+if [ ! `grep -l 'export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib:/lib"'    '/etc/profile'` ]; then
+    echo 'export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib:/lib"' >> "/etc/profile";
+    . "/etc/profile";
+fi
+
 
 # set start cmd
 start_script_file="/etc/rc.local"

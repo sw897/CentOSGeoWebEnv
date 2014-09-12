@@ -27,17 +27,17 @@ make install
 cd ..
 rm -rf libspatialite-${soft_version}
 
-# spatialite-tools
-rm -rf spatialite-tools-${soft_version}
-if [ ! -f spatialite-tools-${soft_version}.tar.gz ]; then
-    wget http://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/spatialite-tools-${soft_version}.tar.gz
-fi
-tar -zxvf spatialite-tools-${soft_version}.tar.gz
-cd spatialite-tools-${soft_version}
-
-./configure
-make
-make install
-
-cd ..
-rm -rf spatialite-tools-${soft_version}
+# # spatialite-tools
+# rm -rf spatialite-tools-${soft_version}
+# if [ ! -f spatialite-tools-${soft_version}.tar.gz ]; then
+#     wget http://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/spatialite-tools-${soft_version}.tar.gz
+# fi
+# tar -zxvf spatialite-tools-${soft_version}.tar.gz
+# cd spatialite-tools-${soft_version}
+#
+# ./configure
+# make
+# make install
+#
+# cd ..
+# rm -rf spatialite-tools-${soft_version}

@@ -26,11 +26,12 @@ git checkout 2.3.x
 make clean
 
 PYTHON=python2.7 ./configure \
-CC=/opt/rh/devtoolset-2/root/usr/bin/gcc \
-CXX=/opt/rh/devtoolset-2/root/usr/bin/g++ \
 PG_CONFIG=/usr/local/pgsql/bin/pg_config \
-CAIRO=False \
 INPUT_PLUGINS=raster,shape,sqlite,postgis,ogr,gdal
+
+# CC=/opt/rh/devtoolset-2/root/usr/bin/gcc \
+# CXX=/opt/rh/devtoolset-2/root/usr/bin/g++ \
+# CAIRO=False \
 
 make PYTHON=python2.7
 make install

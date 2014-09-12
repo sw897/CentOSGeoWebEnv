@@ -233,18 +233,6 @@ rm_soft () {
     sleep $sleep_time
 }
 
-update_ldconfig () {
-
-    # if [ -d "/usr/local/lib64" ]; then
-    #     ln -s /usr/local/lib64/* /usr/local/lib/
-    # fi
-
-    if [ `uname` = "Linux" ]; then
-        ldconfig
-    fi
-
-}
-
 # 1. s/r
 # 2. file
 str_replace () {

@@ -19,4 +19,9 @@ fi
 
 yum install --enablerepo=centosplus -y devtoolset-2-gcc devtoolset-2-binutils devtoolset-2-gcc-c++
 
-#scl enable devtoolset-2 bash
+export PATH="/opt/rh/devtoolset-2/root/usr/bin${PATH:+:${PATH}}"
+
+if [ ! `grep -l 'export PATH="/opt/rh/devtoolset-2/root/usr/bin${PATH:+:${PATH}}"'    '/etc/profile'` ]; then
+    echo 'export PATH="/opt/rh/devtoolset-2/root/usr/bin${PATH:+:${PATH}}"' >> "/etc/profile";
+    . "/etc/profile";
+fi

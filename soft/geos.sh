@@ -19,10 +19,10 @@ fi
 tar -jxvf geos-${soft_version}.tar.bz2
 cd geos-${soft_version}
 
-wget http://trac.osgeo.org/geos/raw-attachment/ticket/535/geos-535.patch
-wget http://trac.osgeo.org/geos/raw-attachment/ticket/535/geos-535-makefile-in.patch
-patch -p0 < geos-535.patch
-patch -p0 < geos-535-makefile-in.patch
+# wget http://trac.osgeo.org/geos/raw-attachment/ticket/535/geos-535.patch
+# wget http://trac.osgeo.org/geos/raw-attachment/ticket/535/geos-535-makefile-in.patch
+# patch -p0 < geos-535.patch
+# patch -p0 < geos-535-makefile-in.patch
 
 ./configure
 make
