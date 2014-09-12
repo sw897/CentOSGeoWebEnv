@@ -59,8 +59,7 @@ pip${python_version} install six
 pip${python_version} install uwsgi
 
 # gdal
-# mv -s ${sys_python_packages}/GDAL-${gdal_version}-py${python_version}-linux-x86_64.egg/EGG-INFO ${sys_python_packages}/GDAL-${gdal_version}-py${python_version}-linux-x86_64.egg/GDAL-${gdal_version}-py${python_version}.egg-info
-ln -s ${sys_python_packages}/GDAL-${gdal_version}-py${python_version}-linux-x86_64.egg/osgeo ${env_python_packages}
+ln -s ${sys_python_packages}/osgeo ${env_python_packages}
 
 # mapnik
 ln -s ${sys_python_packages}/mapnik ${env_python_packages}
