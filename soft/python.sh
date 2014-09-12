@@ -17,6 +17,7 @@ elif [ -e "./inc.sh" ]; then
 fi
 
 soft_version="2.7.8"
+python_version="2.7"
 
 rm -rf Python-${soft_version}
 if [ ! -f Python-${soft_version}.tar.xz ]; then
@@ -39,7 +40,7 @@ if [ ! -f ez_setup.py ]; then
     wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
 fi
 
-python2.7 ez_setup.py
-easy_install pip
+python${python_version} ez_setup.py
+easy_install-${python_version} pip
 
-pip install virtualenv
+pip${python_version} install virtualenv

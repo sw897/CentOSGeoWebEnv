@@ -23,7 +23,7 @@ gdal_version="1.11.0"
 sys_python_packages="/usr/local/lib/python${python_version}/site-packages"
 env_python_packages=${python_env_root}/lib/python${python_version}/site-packages/
 
-virtualenv --no-site-packages ${python_env_root}
+virtualenv-${python_version} --no-site-packages ${python_env_root}
 source ${python_env_root}/bin/activate
 
 # install_func "pysqlite"    "${env_python_packages}/pysqlite2"    "./soft/pysqlite.sh"
@@ -39,24 +39,24 @@ elif [ -e "./soft/pysqlite_setup.cfg" ]; then
     cat ./soft/pysqlite_setup.cfg > pysqlite-${pysqlite_version}/setup.cfg
 fi
 cd pysqlite-${pysqlite_version}
-python2.7 setup.py build
-python2.7 setup.py install
+python${python_version} setup.py build
+python${python_version} setup.py install
 cd ..
 rm -rf pysqlite-${pysqlite_version}
 
-pip install simplejson
-pip install lxml
-pip install pillow
-pip install pyyaml
-pip install eventlet
-pip install shapely
-pip install numpy
+pip${python_version} install simplejson
+pip${python_version} install lxml
+pip${python_version} install pillow
+pip${python_version} install pyyaml
+pip${python_version} install eventlet
+pip${python_version} install shapely
+pip${python_version} install numpy
 
-pip install -v django==1.6.6
-pip install south
-pip install six
+pip${python_version} install -v django==1.6.6
+pip${python_version} install south
+pip${python_version} install six
 
-pip install uwsgi
+pip${python_version} install uwsgi
 
 # gdal
 # mv -s ${sys_python_packages}/GDAL-${gdal_version}-py${python_version}-linux-x86_64.egg/EGG-INFO ${sys_python_packages}/GDAL-${gdal_version}-py${python_version}-linux-x86_64.egg/GDAL-${gdal_version}-py${python_version}.egg-info
