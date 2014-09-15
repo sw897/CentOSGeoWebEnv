@@ -77,6 +77,12 @@ if [ `uname` = 'Linux' ]; then
 fi
 
 
+export PATH="/usr/local/pgsql/bin:${PATH:+:${PATH}}"
+if [ ! `grep -l 'export PATH="/usr/local/pgsql/bin:${PATH:+:${PATH}}"'    '/etc/profile'` ]; then
+    echo 'export PATH="/usr/local/pgsql/bin:${PATH:+:${PATH}}"' >> "/etc/profile";
+    . "/etc/profile";
+fi
+
 cd ..
 cat pg_hba.conf > ${pgsql_data}/pg_hba.conf
 
