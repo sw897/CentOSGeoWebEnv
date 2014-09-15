@@ -28,10 +28,9 @@ make
 make  install
 
 #create db
-${pgsql_path}/bin/createdb -U postgres -E UTF8 postgis
+${pgsql_path}/bin/createdb -U postgres -E UTF8 --template=template0 postgis
 ${pgsql_path}/bin/createlang -U postgres plpgsql postgis
-${pgsql_path}/bin/psql -U postgres -d postgis -f ${pgsql_path}/share/contrib/${postgis_ver}/postgis.sql
-${pgsql_path}/bin/psql -U postgres -d postgis -f ${pgsql_path}/share/contrib/${postgis_ver}/spatial_ref_sys.sql
+${pgsql_path}/bin/psql -U postgres -d postgis -c "CREATE EXTENSION postgis;"
 chmod -R 0700 ${pgsql_data}
 
 cd ..
