@@ -44,6 +44,7 @@ python${python_version} setup.py install
 cd ..
 rm -rf pysqlite-${pysqlite_version}
 
+pip${python_version} install psycopg2
 pip${python_version} install simplejson
 pip${python_version} install lxml
 pip${python_version} install pillow
