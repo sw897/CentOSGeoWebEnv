@@ -84,7 +84,7 @@ install_func_online "freetype-devel gd gd-devel glib2-devel cairo-devel"
 
 install_func_online "libxml2-devel libxslt-devel"
 
-install_func_online "libyaml libyaml-devel"
+# install_func_online "libyaml libyaml-devel"
 
 install_func_online "curl libcurl-devel"
 
@@ -127,7 +127,10 @@ ldconfig
 install_func "proj4"    "/usr/local/lib/libproj.so"    "./soft/proj.sh"
 install_func "geos"    "/usr/local/bin/geos-config"    "./soft/geos.sh"
 
-install_func_online "json-c-devel xerces-c-devel expat-devel freexl-devel libaio-devel"
+install_func_online "xerces-c-devel expat-devel libaio-devel"
+install_func "json-c"    "/usr/local/lib/libjson.so"    "./soft/json-c.sh"
+install_func "freexl"    "/usr/local/lib/libfreexl.so"    "./soft/freexl.sh"
+
 ldconfig
 
 install_func "spatialite"    "/usr/local/lib/libspatialite.so"    "./soft/spatialite.sh"
