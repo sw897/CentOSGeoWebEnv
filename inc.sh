@@ -24,7 +24,7 @@ release_y='2014'
 release_md='0901'
 release_date=${release_y}${release_md}
 
-data_root='/mydata'
+data_root='/streetview'
 www_root="${data_root}/www"
 python_env_root="${data_root}/env"
 

@@ -104,24 +104,24 @@ install_func "harfBuzz" "/usr/local/lib/libharfbuzz.so" "./soft/harfbuzz.sh"
 
 ldconfig
 
-# mysql
-install_func_online "mysql mysql-server"
-mysqldatadir=${data_root}/mysql_data
-if [ ! -d "$mysqldatadir" ]; then
-    mkdir -p "$mysqldatadir";
-    $kill_all mysqld
-    mysql_install_db --datadir=${mysqldatadir}
-    service mysqld restart
-    #service mysqld stop
-fi
+# # mysql
+# install_func_online "mysql mysql-server"
+# mysqldatadir=${data_root}/mysql_data
+# if [ ! -d "$mysqldatadir" ]; then
+#     mkdir -p "$mysqldatadir";
+#     $kill_all mysqld
+#     mysql_install_db --datadir=${mysqldatadir}
+#     service mysqld restart
+#     #service mysqld stop
+# fi
 
 # pgsql
 install_func "pgsql"    "/usr/local/pgsql/bin/createdb"    "./soft/pgsql.sh"
 
 ldconfig
 
-# nginx
-install_func_online "nginx"
+# # nginx
+# install_func_online "nginx"
 
 # osgeo
 install_func "proj4"    "/usr/local/lib/libproj.so"    "./soft/proj.sh"
