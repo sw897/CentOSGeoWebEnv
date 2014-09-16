@@ -10,11 +10,11 @@
 # ******************************************************************************
 #
 
-soft_version="0.12-20140410"
+soft_version="0.12"
 
 rm -rf json-c-${soft_version}
 if [ ! -f json-c-${soft_version}.tar.gz ]; then
-    wget https://github.com/json-c/json-c/archive/json-c-${soft_version}.tar.gz
+    wget https://s3.amazonaws.com/json-c_releases/releases/json-c-${soft_version}.tar.gz
 fi
 
 tar -zxvf json-c-${soft_version}.tar.gz
