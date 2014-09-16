@@ -12,7 +12,7 @@
 
 soft_version="9.3.5"
 soft_root="/usr/local/pgsql"
-pgsql_data="/mydata/pgsql_data"
+pgsql_data="/streetview/pgsql_data"
 
 if [ ! -d "${pgsql_data}" ]; then
     mkdir -p "${pgsql_data}";
@@ -38,7 +38,7 @@ fi
 tar -jxvf postgresql-${soft_version}.tar.bz2
 cd postgresql-${soft_version}
 
-./configure --prefix=${soft_root} --with-python
+./configure --prefix=${soft_root}
 make
 make install
 
