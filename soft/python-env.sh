@@ -58,6 +58,8 @@ pip${python_version} install south
 pip${python_version} install six
 
 pip${python_version} install uwsgi
+pip${python_version} install tornado
+pip${python_version} install supervisor
 
 # gdal
 ln -s ${sys_python_packages}/osgeo ${env_python_packages}

@@ -38,7 +38,7 @@ fi
 tar -jxvf postgresql-${soft_version}.tar.bz2
 cd postgresql-${soft_version}
 
-./configure --prefix=${soft_root} --with-python
+./configure --prefix=${soft_root}
 make
 make install
 
