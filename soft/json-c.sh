@@ -10,7 +10,7 @@
 # ******************************************************************************
 #
 
-soft_version="0.12"
+soft_version="0.10"
 
 rm -rf json-c-${soft_version}
 if [ ! -f json-c-${soft_version}.tar.gz ]; then
