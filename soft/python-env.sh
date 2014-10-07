@@ -62,7 +62,11 @@ pip${python_version} install tornado
 pip${python_version} install supervisor
 
 # gdal
-ln -s ${sys_python_packages}/osgeo ${env_python_packages}
+if [ -e "${sys_python_packages}/osgeo" ]; then
+    ln -s ${sys_python_packages}/osgeo ${env_python_packages}
+elif [ -e ${sys_python_packages}/GDAL-${gdal_version}-py${python_version}-linux-x86_64.egg/osgeo ]; then
+    ln -s ${sys_python_packages}/GDAL-${gdal_version}-py${python_version}-linux-x86_64.egg/osgeo ${env_python_packages}
+fi
 
 # mapnik
 ln -s ${sys_python_packages}/mapnik ${env_python_packages}
