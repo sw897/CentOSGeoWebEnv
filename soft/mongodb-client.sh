@@ -16,7 +16,7 @@ if [ ! -f mongo-cxx-driver-legacy-0.0-26compat-2.6.4.tar.gz ]; then
     wget https://github.com/mongodb/mongo-cxx-driver/archive/legacy-0.0-26compat-2.6.4.tar.gz
 fi
 
-tar -zxvf mongo-cxx-driver-legacy-0.0-26compat-2.6.4.tar.gz
+tar -zxvf legacy-0.0-26compat-2.6.4.tar.gz
 cd mongo-cxx-driver-legacy-0.0-26compat-2.6.4
 
 yum install -y scons
