@@ -12,7 +12,7 @@
 
 
 rm -rf mongo-cxx-driver-legacy-0.0-26compat-2.6.4.tar.gz
-if [ ! -f mongo-cxx-driver-legacy-0.0-26compat-2.6.4.tar.gz ]; then
+if [ ! -f legacy-0.0-26compat-2.6.4.tar.gz ]; then
     wget https://github.com/mongodb/mongo-cxx-driver/archive/legacy-0.0-26compat-2.6.4.tar.gz
 fi
 
