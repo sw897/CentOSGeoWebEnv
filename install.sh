@@ -150,9 +150,6 @@ if [ `grep -l "exit 0"    "$start_script_file"` ]; then
     str_replace    "exit 0/#exit 0"    "$start_script_file";
 fi
 
-# python virtual env
-install_func "python_env" "${python_env_root}/lib/python2.7/site-packages/pysqlite2" "./soft/python-env.sh"
-
 ./copyright.sh
 rm -rf /tmp/nmgeowebenv_install_status.txt
 

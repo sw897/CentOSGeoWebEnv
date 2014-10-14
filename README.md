@@ -4,25 +4,26 @@
 
 CentOSGeoWebEnv = OSGeo Web Environment for CentOS
 
-* WebServer and Database
+* WebServer
 
 	* Nginx
+
+* Database
+
 	* MySQL
-	* PostgreSQL
-	* Sqlite
+	* PostgreSQL/PostGIS
+	* Sqlite/Spatialite(not recommended)
 
 * OSGeo
 
 	* Proj4
 	* GEOS
-	* Spatialite
 	* GDAL
-	* PostGIS
 	* Mapnik
-	
+
 * Interprater
 
-	* Python
+	* Python2.7
 	* NodeJS(todo)
 
 
@@ -30,5 +31,3 @@ CentOSGeoWebEnv = OSGeo Web Environment for CentOS
 
 	sudo su root
 	./install.sh
-
-	
