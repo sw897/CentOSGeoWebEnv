@@ -57,7 +57,7 @@ su postgres -c "${soft_root}/bin/pg_ctl -U postgres -D ${pgsql_data} -l ${pgsql_
 chmod -R 0700 ${pgsql_data}
 sleep 3;
 
-${soft_root}/bin/createdb -T template0 -U postgres -E UTF8 newmap
+${soft_root}/bin/createdb -T template0 -U postgres -E UTF8 mapdb
 chmod -R 0700 ${pgsql_data}
 
 ${soft_root}/bin/psql -U postgres -c "alter role postgres password 'postgres';"
