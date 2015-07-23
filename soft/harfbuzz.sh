@@ -10,7 +10,7 @@
 # ******************************************************************************
 #
 
-soft_version="0.9.35"
+soft_version="0.9.41"
 
 rm -rf harfbuzz-${soft_version}
 if [ ! -f harfbuzz-${soft_version}.tar.bz2 ]; then

@@ -18,8 +18,9 @@ else
     cd mapnik
     git pull
 fi
-git checkout 2.3.x
-#git checkout 648dea63ac6600529aab94e4807bc45992af2061
+
+git checkout v3.0.0
+#git checkout 1c56214bbbcf3dc5d3e9bed1810d8279ecfad9ec
 
 #`scl enable devtoolset-2 bash`
 

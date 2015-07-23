@@ -10,7 +10,7 @@
 # ******************************************************************************
 #
 
-soft_version="4.8.0"
+soft_version="4.9.1"
 
 rm -rf proj-${soft_version}
 if [ ! -f proj-${soft_version}.tar.gz ]; then

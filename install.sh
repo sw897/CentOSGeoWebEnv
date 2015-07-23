@@ -106,6 +106,12 @@ install_func "harfBuzz" "/usr/local/lib/libharfbuzz.so" "./soft/harfbuzz.sh"
 
 ldconfig
 
+# php
+install_func_online "php"
+install_func_online "php-fpm"
+
+ldconfig
+
 # mysql
 install_func_online "mysql mysql-server"
 mysqldatadir=${data_root}/mysql_data
@@ -124,6 +130,7 @@ ldconfig
 
 # nginx
 install_func_online "nginx"
+
 
 # osgeo
 install_func "proj4"    "/usr/local/lib/libproj.so"    "./soft/proj.sh"
@@ -151,6 +158,6 @@ if [ `grep -l "exit 0"    "$start_script_file"` ]; then
 fi
 
 ./copyright.sh
-rm -rf /tmp/nmgeowebenv_install_status.txt
+rm -rf /tmp/geowebenv_install_status.txt
 
 # cd ~

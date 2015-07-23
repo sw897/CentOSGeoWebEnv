@@ -10,14 +10,15 @@
 # ******************************************************************************
 #
 
-soft_version="3.16.0"
+soft_version="3.17.0"
+soft_version2="3170"
 
 rm -rf freeimage-${soft_version}
 if [ ! -f freeimage-${soft_version}.tar.gz ]; then
-    wget http://jaist.dl.sourceforge.net/project/freeimage/Source%20Distribution/3.16.0/FreeImage3160.zip
+    wget http://jaist.dl.sourceforge.net/project/freeimage/Source%20Distribution/${soft_version}/FreeImage${soft_version2}.zip
 fi
 
-unzip FreeImage3160.zip
+unzip FreeImage${soft_version2}.zip
 cd FreeImage
 
 make

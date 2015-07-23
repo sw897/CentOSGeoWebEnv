@@ -10,7 +10,7 @@
 # ******************************************************************************
 #
 
-soft_version="9.3.5"
+soft_version="9.4.4"
 soft_root="/usr/local/pgsql"
 pgsql_data="/mydata/pgsql_data"
 

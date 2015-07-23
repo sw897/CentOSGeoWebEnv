@@ -10,12 +10,14 @@
 # ******************************************************************************
 #
 
-rm -rf boost_1_56_0
-if [ ! -f boost_1_56_0.tar.gz ]; then
-    wget http://jaist.dl.sourceforge.net/project/boost/boost/1.56.0/boost_1_56_0.tar.gz
+boost_version="1_58_0"
+boost_version2="1.58.0"
+rm -rf boost_${boost_version}
+if [ ! -f boost_${boost_version}.tar.gz ]; then
+    wget http://jaist.dl.sourceforge.net/project/boost/boost/${boost_version2}/boost_${boost_version}.tar.gz
 fi
-tar -zxvf boost_1_56_0.tar.gz
-cd boost_1_56_0
+tar -zxvf boost_${boost_version}.tar.gz
+cd boost_${boost_version}
 
 ./bootstrap.sh
 ./bjam -sTOOLS=gcc  install
@@ -30,5 +32,5 @@ fi
 cp -f stage/lib/libboost_python.so* /usr/local/lib
 
 cd ..
-rm -rf boost_1_56_0
-# rm -f boost_1_56_0.tar.gz
+rm -rf boost_${boost_version}
+# rm -f boost_${boost_version}.tar.gz

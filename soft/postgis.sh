@@ -13,7 +13,7 @@
 pgsql_path="/usr/local/pgsql"
 pgsql_data="/mydata/pgsql_data"
 postgis_ver="postgis-2.1"
-soft_version="2.1.3"
+soft_version="2.1.8"
 
 rm -rf postgis-${soft_version}
 if [ ! -f postgis-${soft_version}.tar.gz ]; then

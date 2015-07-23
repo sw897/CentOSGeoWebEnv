@@ -10,17 +10,18 @@
 # ******************************************************************************
 #
 
-rm -rf sqlite-autoconf-3080600
-if [ ! -f sqlite-autoconf-3080600.tar.gz ]; then
-    wget http://sqlite.org/2014/sqlite-autoconf-3080600.tar.gz
+soft_version="3080600"
+rm -rf sqlite-autoconf-${soft_version}
+if [ ! -f sqlite-autoconf-${soft_version}.tar.gz ]; then
+    wget http://sqlite.org/2014/sqlite-autoconf-${soft_version}.tar.gz
 fi
 
-tar -zxvf sqlite-autoconf-3080600.tar.gz
-cd sqlite-autoconf-3080600
+tar -zxvf sqlite-autoconf-${soft_version}.tar.gz
+cd sqlite-autoconf-${soft_version}
 
 ./configure
 make
 make install
 
 cd ..
-rm -rf sqlite-autoconf-3080600
+rm -rf sqlite-autoconf-${soft_version}

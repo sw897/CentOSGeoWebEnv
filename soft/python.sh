@@ -16,7 +16,7 @@ elif [ -e "./inc.sh" ]; then
     . "./inc.sh"
 fi
 
-soft_version="2.7.8"
+soft_version="2.7.9"
 python_version="2.7"
 
 rm -rf Python-${soft_version}
