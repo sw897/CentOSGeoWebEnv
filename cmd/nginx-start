@@ -1,0 +1,15 @@
+#!/bin/sh
+
+service php-fpm start
+service nginx start
+if [ "`ps -Af | grep 'nginx' | grep -vc 'grep'`" != '0' ]; then
+    echo "Nginx was started successfully"
+else
+    echo "Nginx was started failed"
+fi
+
+if [ "`ps -Af | grep 'php-fpm' | grep -vc 'grep'`" != '0' ]; then
+    echo "php-fpm was started successfully"
+else
+    echo "php-fpm was started failed"
+fi

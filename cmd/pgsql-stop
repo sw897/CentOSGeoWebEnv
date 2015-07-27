@@ -1,0 +1,22 @@
+#!/bin/sh
+
+pgsql_user='postgres'
+data_dir='/mydata/pgsql_data'
+
+su postgres -c "pg_ctl stop -D $data_dir -l $data_dir/pgsql.log -o -i -w -t 15";
+sleep 1
+
+if [ `ps -Af | grep postgres | grep -vc 'grep'` = '0' ]; then
+    echo "PgSQL was closed successfully"
+else
+    sleep 2
+    if [ `ps -Af | grep postgres | grep -vc 'grep'` != '0' ]; then
+        kill postgres
+    fi
+fi
+
+if [ -f ${data_dir}/postmaster.pid ]; then
+    rm -rf ${data_dir}/postmaster.pid
+fi
+
+echo "PgSQL was stopped"

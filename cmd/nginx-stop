@@ -1,0 +1,8 @@
+#!/bin/sh
+
+skill -kill nginx
+skill -kill php-fpm
+
+if [ `ps -Af | grep nginx | grep -vc 'grep'` != '0' ]; then
+    echo "Nginx was closed successfully"
+fi

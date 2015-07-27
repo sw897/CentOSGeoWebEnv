@@ -1,0 +1,22 @@
+#!/bin/sh
+
+if [ `ps -Af | grep mysqld | grep -vc 'grep'` != '0' ]; then
+    echo "MySQL is already running"
+else
+    mysql_user='mysql'
+    data_dir='/mydata/mysql_data'
+
+    mysqld_safe --user=${mysql_user} --datadir=${data_dir} --pid_file=${data_dir}/`hostname`.pid &
+
+    sleep 3
+
+    if [ `ps -Af | grep "mysqld_safe" | grep -vc 'grep'` != '0' ]; then
+        if [ ! -d ${data_dir} ]; then
+            mkdir ${data_dir}
+        fi
+        echo "MySQL was started successfully"
+    else
+        echo "MySQL was started failed"
+    fi
+fi
+
